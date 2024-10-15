@@ -37,6 +37,6 @@ class DayNightSwitchTest {
             }
         }
 
-        composeTestRule.onNodeWithTag("").assertIsOn()
+        composeTestRule.onNodeWithTag("SwitchCanvas").assertIsOn()
     }
 }
