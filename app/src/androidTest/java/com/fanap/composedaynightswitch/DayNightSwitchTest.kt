@@ -33,7 +33,9 @@ class DayNightSwitchTest {
 
         composeTestRule.setContent {
             ComposeDayNightSwitchTheme {
-                DayNightSwitch(modifier = Modifier, dayMode)
+                DayNightSwitch(modifier = Modifier, dayMode){
+
+                }
             }
         }
 
