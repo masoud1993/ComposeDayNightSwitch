@@ -1,12 +1,17 @@
 package com.fanap.composedaynightswitch
 
+import androidx.compose.animation.core.EaseInOut
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,8 +26,9 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.text.drawText
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 import com.fanap.composedaynightswitch.ui.theme.DayBackground
 import com.fanap.composedaynightswitch.ui.theme.NightBackground
 
@@ -45,15 +51,29 @@ fun DayNightSwitch(modifier: Modifier = Modifier,
 
     var isOn by remember { mutableStateOf(initialMode) }
 
+    val offsetX by animateFloatAsState(
+        targetValue = if (isOn) 0f else 0.1f,
+        animationSpec = keyframes {
+            0f at 0 using LinearOutSlowInEasing
+            10f at 100
+            -10f at 200
+            5f at 200
+            0f at 400
+
+            durationMillis = 400
+        }, label = ""
+    )
+
+
     val translationXAnim by animateFloatAsState(
         targetValue = if (isOn) 0f else translateXValue,
-        animationSpec = tween(durationMillis = 500),
+        animationSpec  = spring(dampingRatio = Spring.DampingRatioMediumBouncy, stiffness = Spring.StiffnessLow),
         label = ""
     )
 
     val rotationAngleAnim by animateFloatAsState(
         targetValue = if (isOn) 0f else 360f,
-        animationSpec = tween(durationMillis = 500),
+        animationSpec = tween(durationMillis = 500, easing = EaseInOut),
         label = ""
     )
 
@@ -63,6 +83,9 @@ fun DayNightSwitch(modifier: Modifier = Modifier,
                 mode(isOn)
             }
             .testTag("SwitchCanvas")
+            .offset {
+                IntOffset(offsetX.dp.toPx().toInt(), 0)
+            }
             .fillMaxWidth()
             .background(color = if(isOn) DayBackground else NightBackground)) {
             val width = size.width
@@ -73,7 +96,6 @@ fun DayNightSwitch(modifier: Modifier = Modifier,
 
 
             val startPosition = Offset(topLeftX + margin, topLeftY + margin)
-            val endPosition = Offset(topLeftX + rectangleWidth - diameter - margin, topLeftY + margin)
 
             val switchPath = Path().apply {
 

@@ -54,21 +54,29 @@ class MainActivity : ComponentActivity() {
                         mutableStateOf(true)
                     }
 
-                    Box(modifier = Modifier
-                        .fillMaxSize()
-                        .background(if (isOn) DayBackground else NightBackground)){
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(if (isOn) DayBackground else NightBackground)
+                    ) {
 
-                        DayNightSwitch(modifier = Modifier.align(Alignment.Center).padding(innerPadding), isOn){
+                        DayNightSwitch(
+                            modifier = Modifier
+                                .align(Alignment.Center)
+                                .padding(innerPadding), isOn
+                        ) {
                             isOn = it
                         }
 
-                        Text(modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            .padding(top = 200.dp),
+                        Text(
+                            modifier = Modifier
+                                .align(Alignment.TopCenter)
+                                .padding(top = 200.dp),
                             color = if (isOn) NightBackground else DayBackground,
                             fontSize = 45.sp,
                             fontWeight = FontWeight.Bold,
-                            text = if(isOn) "DAY" else "NIGHT")
+                            text = if (isOn) "DAY" else "NIGHT"
+                        )
 
                     }
                 }
