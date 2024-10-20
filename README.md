@@ -1,8 +1,10 @@
-# 🎨 Awesome DayNightSwitch Animation
+# 🎨 Awesome ComposeDayNightSwitch
 
 An awesome **DayNightSwitch** component with **spring** and **rotate** animations built using **Jetpack Compose** and **Canvas** in Android.
 
 ## 🎥 Demo
+
+<img src="https://github.com/masoud1993/ComposeDayNightSwitch/blob/master/demo/DayNightSwitch.gif" height="100" />
 
 ![Demo](https://github.com/masoud1993/ComposeDayNightSwitch/blob/master/demo/DayNightSwitch.gif)
 
