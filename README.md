@@ -1,6 +1,6 @@
-# 🎨 Awesome ComposeDayNightSwitch
+# 🎨 Awesome ComposeDayNightSelector
 
-An awesome **DayNightSwitch** component with **spring** and **rotate** animations built using **Jetpack Compose** and **Canvas** in Android.
+An awesome **DayNightSelector** component with **spring** and **rotate** animations built using **Jetpack Compose** and **Canvas** in Android.
 
 ## 🎥 Demo
 
@@ -10,7 +10,7 @@ An awesome **DayNightSwitch** component with **spring** and **rotate** animation
 
 ## 🚀 Features
 
-- **Spring Animation**: Adds a natural spring effect to the switch toggle for a smooth and responsive experience.
-- **Rotation Effect**: The switch includes a visually engaging rotation animation during state change.
+- **Spring Animation**: Adds a natural spring effect to the selector toggle for a smooth and responsive experience.
+- **Rotation Effect**: The selector includes a visually engaging rotation animation during state change.
 - **Jetpack Compose & Canvas**: Fully created using Jetpack Compose's Canvas for custom drawing and animations.
 ---
