@@ -4,9 +4,7 @@ An awesome **DayNightSwitch** component with **spring** and **rotate** animation
 
 ## 🎥 Demo
 
-<img src="https://github.com/masoud1993/ComposeDayNightSwitch/blob/master/demo/DayNightSwitch.gif" height="100" />
-
-![Demo](https://github.com/masoud1993/ComposeDayNightSwitch/blob/master/demo/DayNightSwitch.gif)
+<img src="https://github.com/masoud1993/ComposeDayNightSwitch/blob/master/demo/DayNightSwitch.gif" height="500" width="300" />
 
 ---
 
